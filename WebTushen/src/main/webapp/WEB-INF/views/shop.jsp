@@ -68,13 +68,19 @@
                 </div>
                 <div class="d-flex m-3 me-0">
                     <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
-                    <a href="#" class="position-relative me-4 my-auto">
+                    <a href="<c:url value='/user/cart' />" class="position-relative me-4 my-auto">
                         <i class="fa fa-shopping-bag fa-2x"></i>
                         <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
                     </a>
-                    <a href="#" class="my-auto">
-                        <i class="fas fa-user fa-2x"></i>
-                    </a>
+                    <c:if test="${not empty sessionScope.loggedInUser}">
+                        <div class="d-flex">
+                            <a href="<c:url value='/user/inform' />" class="btn btn-outline-primary">Xin chào, ${sessionScope.loggedInUser.fullName}</a>
+                            <a href="<c:url value='/logout' />" class="btn btn-outline-secondary ms-3">Đăng xuất</a>
+                        </div>
+                    </c:if>
+                    <c:if test="${empty sessionScope.loggedInUser}">
+                        <a href="<c:url value='/login' />" class="btn btn-outline-primary"><i class="fas fa-user fa-2x"></i>ㅤĐăng nhập</a>
+                    </c:if>
                 </div>
             </div>
         </nav>
@@ -121,24 +127,29 @@
         <h1 class="mb-4">Tất cả sản phẩm</h1>
         <div class="row g-4">
             <div class="col-lg-12">
-                <div class="row g-4">
-                    <div class="col-xl-3">
-                        <div class="input-group w-100 mx-auto d-flex">
-                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                            <span id="search-icon-10" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                <form action="${pageContext.request.contextPath}/shop" method="get">
+                    <div class="row g-4">
+                        <div class="col-xl-3">
+                            <div class="input-group w-100 mx-auto d-flex">
+                                <input type="search" name="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                                <span id="search-icon-10" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                                <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                            </div>
+                        </div>
+                        <div class="col-6"></div>
+                        <div class="col-xl-3">
+                            <div class="bg-light ps-3 py-3 rounded d-flex justify-content-between mb-4">
+                                <label for="sort">Default Sorting:</label>
+                                <select id="sort" name="sort" class="border-0 form-select-sm bg-light me-3">
+                                    <option value="PriceAsc">Giá thấp đến cao</option>
+                                    <option value="PriceDesc">Giá cao đến thấp</option>
+                                </select>
+                                <button type="submit" class="btn btn-primary">Lọc</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-6"></div>
-                    <div class="col-xl-3">
-                        <div class="bg-light ps-3 py-3 rounded d-flex justify-content-between mb-4">
-                            <label for="fruits">Default Sorting:</label>
-                            <select id="fruits" name="fruitlist" class="border-0 form-select-sm bg-light me-3">
-                                <option value="Price">Giá thấp đến cao</option>
-                                <option value="Price">Giá cao đến thấp</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+                    <!-- Thêm một nút tìm kiếm nếu muốn -->
+                </form>
                 <div class="row g-4">
                     <div class="col-lg-3">
                         <div class="row g-4">
@@ -146,13 +157,15 @@
                                 <div class="mb-3">
                                     <h4>Loại sản phẩm</h4>
                                     <c:forEach var="category" items="${categoryList}">
-                                    <ul class="list-unstyled fruite-categorie">
-                                        <li>
-                                            <div class="d-flex justify-content-between fruite-name">
-                                                <a href="#"><i class="fas fa-apple-alt me-2"></i>${category.categoryName}</a>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                        <ul class="list-unstyled fruite-categorie">
+                                            <li>
+                                                <div class="d-flex justify-content-between fruite-name">
+                                                    <a href="?category=${category.categoryId}">
+                                                        <i class="fas fa-apple-alt me-2"></i>${category.categoryName}
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </c:forEach>
                                 </div>
                             </div>
@@ -201,9 +214,6 @@
                             <div class="col-lg-12">
                                 <div class="position-relative">
                                     <img src="<c:url value='/template/user/img/pattern_img.jpg' />" class="img-fluid w-100 rounded" alt="">
-                                    <div class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
-                                        <h3 class="text-secondary fw-bold">Tushen <br> Craft <br> Products</h3>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -224,7 +234,7 @@
                                         <p>${product.description}</p>
                                         <div class="d-flex justify-content-between flex-lg-wrap">
                                             <p class="text-dark fs-5 fw-bold mb-0">${product.price} VND</p>
-                                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Xem chi tiết</a>
+                                            <a href="<c:url value='/detail?id=${product.productId}'/>" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Xem chi tiết</a>
                                         </div>
                                     </div>
                                 </div>

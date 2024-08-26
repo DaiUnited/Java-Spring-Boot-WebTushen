@@ -68,13 +68,19 @@
                 </div>
                 <div class="d-flex m-3 me-0">
                     <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
-                    <a href="#" class="position-relative me-4 my-auto">
+                    <a href="<c:url value='/user/cart' />" class="position-relative me-4 my-auto">
                         <i class="fa fa-shopping-bag fa-2x"></i>
                         <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
                     </a>
-                    <a href="#" class="my-auto">
-                        <i class="fas fa-user fa-2x"></i>
-                    </a>
+                    <c:if test="${not empty sessionScope.loggedInUser}">
+                        <div class="d-flex">
+                            <a href="<c:url value='/user/inform' />" class="btn btn-outline-primary">Xin chào, ${sessionScope.loggedInUser.fullName}</a>
+                            <a href="<c:url value='/logout' />" class="btn btn-outline-secondary ms-3">Đăng xuất</a>
+                        </div>
+                    </c:if>
+                    <c:if test="${empty sessionScope.loggedInUser}">
+                        <a href="<c:url value='/login' />" class="btn btn-outline-primary"><i class="fas fa-user fa-2x"></i>ㅤĐăng nhập</a>
+                    </c:if>
                 </div>
             </div>
         </nav>
@@ -154,7 +160,7 @@
                     </div>
                     <div class="featurs-content text-center">
                         <h5>Free Shipping</h5>
-                        <p class="mb-0">Miễn phí vận chuyển trong khu vực nội thành</p>
+                        <p class="mb-0">Miễn phí vận chuyển cho đơn hàng trên 200k</p>
                     </div>
                 </div>
             </div>

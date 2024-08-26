@@ -59,7 +59,7 @@ public class Product {
 
     // Getters and Setters
 
-    public long getProductId() {
+    public Integer getProductId() {
         return id;
     }
 

@@ -88,7 +88,6 @@
 </div>
 <!-- Navbar End -->
 
-
 <!-- Modal Search Start -->
 <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
@@ -109,132 +108,151 @@
 <!-- Modal Search End -->
 
 
-
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5" style="background-image: url(/template/user/img/banner.jpg)">
     <h1 class="text-center text-white display-6" style="color: deeppink">Tushen Crochet Shop</h1>
     <ol class="breadcrumb justify-content-center mb-0">
         <li class="breadcrumb-item"><a href="<c:url value="/home"/>">Home</a></li>
-        <li class="breadcrumb-item active text-white">Login</li>
+        <li class="breadcrumb-item active text-white">Detail</li>
         <li class="breadcrumb-item"><a href="<c:url value="/about"/>">About</a></li>
     </ol>
 </div>
 <!-- Single Page Header End -->
 
-<!-- Cart Page Start -->
-<div class="container-fluid py-5">
+
+<!-- Single Product Start -->
+<div class="container-fluid py-5 mt-5">
     <div class="container py-5">
-        <div class="table-responsive">
-            <h1>Your Cart</h1>
-            <c:if test="${empty cartItems}">
-                <p>Your cart is empty.</p>
-            </c:if>
-            <c:if test="${not empty cartItems}">
-                <form action="<c:url value='/user/update-quantity' />" method="post" id="updateQuantityForm">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th scope="col">Products</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Total</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="item" items="${cartItems}">
-                            <tr>
-                                <th scope="row">
-                                    <div class="d-flex align-items-center">
-                                        <img src="<c:url value='/template/admin/product/image/${item.product.image}'/>" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="">
-                                    </div>
-                                </th>
-                                <td>
-                                    <p class="mb-0 mt-4">${item.product.productName}</p>
-                                </td>
-                                <td>
-                                    <p class="mb-0 mt-4">${item.product.price} VNĐ</p>
-                                </td>
-                                <td>
-                                    <div class="input-group quantity mt-4" style="width: 100px;">
-                                        <div class="input-group-btn">
-                                            <button type="button" class="btn btn-sm btn-minus rounded-circle bg-light border" onclick="updateQuantity(${item.product.productId}, -1)">
-                                                <i class="fa fa-minus"></i>
-                                            </button>
-                                        </div>
-                                        <input type="number" class="form-control form-control-sm text-center border-0" name="quantities[${item.product.productId}]" value="${item.quantity}">
-                                        <div class="input-group-btn">
-                                            <button type="button" class="btn btn-sm btn-plus rounded-circle bg-light border" onclick="updateQuantity(${item.product.productId}, 1)">
-                                                <i class="fa fa-plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="mb-0 mt-4">${item.product.price * item.quantity} VNĐ</p>
-                                </td>
-                                <td>
-                                    <form action="<c:url value='/user/remove-from-cart' />" method="post" style="display:inline;">
-                                        <input type="hidden" name="productId" value="${item.product.productId}">
-                                        <button type="submit" class="btn btn-md rounded-circle bg-light border mt-4">
-                                            <i class="fa fa-times text-danger"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
-                    <button type="submit" class="btn border-secondary rounded-pill px-4 py-3 text-primary" id="updateCartBtn">Update Cart</button>
-                </form>
-            </c:if>
-        </div>
-        <div class="mt-5">
-            <input type="text" class="border-0 border-bottom rounded me-5 py-3 mb-4" placeholder="Coupon Code">
-            <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" type="button">Apply Coupon</button>
-        </div>
-        <div class="row g-4 justify-content-end">
-            <div class="col-8"></div>
-            <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
-                <div class="bg-light rounded">
-                    <div class="p-4">
-                        <h1 class="display-6 mb-4">Thông tin đơn hàng: <span class="fw-normal">Total</span></h1>
-                        <div class="d-flex justify-content-between mb-4">
-                            <h5 class="mb-0 me-4">Tổng tiền sản phẩm:</h5>
-                            <p class="mb-0">${cartTotal} VNĐ</p>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <h5 class="mb-0 me-4">Tiền ship:</h5>
-                            <p class="mb-0">Phí ship: 15000 VNĐ</p>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <h5 class="mb-0 me-4">Địa chỉ giao hàng:</h5>
-                            <p class="mb-0 text-end">${sessionScope.loggedInUser.address}.</p>
+        <div class="row g-4 mb-5">
+            <div class="col-lg-8 col-xl-9">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="border rounded">
+                            <a href="#">
+                                <img src="<c:url value='/template/admin/product/image/${product.image}'/>" class="img-fluid rounded" alt="Image">
+                            </a>
                         </div>
                     </div>
-                    <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
-                        <h5 class="mb-0 ps-4 me-4">Tổng cộng:</h5>
-                        <p class="mb-0 pe-4" style="color: red">${cartTotal + 15000} VNĐ</p>
+                    <div class="col-lg-6">
+                        <h5 class="fw-bold mb-3" style="color: deeppink">${product.productName}</h5>
+                        <p class="mb-3">Loại sản phẩm: ${product.category.categoryName}</p>
+                        <h5 class="fw-bold mb-3">${product.price} VND</h5>
+                        <div class="d-flex mb-4">
+                            <i class="fa fa-star text-secondary"></i>
+                            <i class="fa fa-star text-secondary"></i>
+                            <i class="fa fa-star text-secondary"></i>
+                            <i class="fa fa-star text-secondary"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <h4 class="mb-4">${product.description}</h4>
+                        <h5 class="mb-4">☆ Sản phẩm có thể dùng để:</h5>
+                        <p class="mb-4">- Đồ chơi cho trẻ em: Thú bông là một lựa chọn tuyệt vời cho đồ chơi của trẻ em. Chúng được làm từ chất liệu an toàn, mềm mại, không gây kích ứng cho da, giúp trẻ có thêm bạn đồng hành trong các hoạt động chơi và giả trí.</p>
+                        <p class="mb-4">- Gối ôm: Gấu bông Len có thể được sử dụng như một chiếc gối ôm để giúp bạn thư giãn và giảm căng thẳng sau một ngày làm việc căng thẳng.</p>
+                        <p class="mb-4">- Trang trí nội thất: Những chiếc thú bông có thiết kế độc đáo và dễ thương có thể được sử dụng làm đồ trang trí cho phòng khách, phòng ngủ hoặc một góc ở nơi làm việc - học tập của bạn.</p>
+                        <p class="mb-4">- Quà tặng: Thú bông bằng len là một món quà ý nghĩa và độc đáo cho bạn bè, người thân trong các dịp đặc biệt như sinh nhật, kỷ niệm hay ngày lễ.</p>
+                        <div class="input-group quantity mb-5" style="width: 100px;">
+                            <div class="input-group-btn">
+                                <button class="btn btn-sm btn-minus rounded-circle bg-light border" >
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                            <input type="number" name="quantity" class="form-control form-control-sm text-center border-0" value="1" min="1">
+                            <div class="input-group-btn">
+                                <button class="btn btn-sm btn-plus rounded-circle bg-light border">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <c:choose>
+                            <c:when test="${not empty sessionScope.loggedInUser}">
+                                <form action="<c:url value='/user/add-to-cart' />" method="post">
+                                    <input type="hidden" name="productId" value="${product.productId}" />
+                                    <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+                                </form>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="<c:url value='/login' />" class="btn btn-primary">Đăng nhập để thêm vào giỏ hàng</a>
+                            </c:otherwise>
+                        </c:choose>
+
                     </div>
-                    <a href="<%=request.getContextPath()%>/checkout" class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4">Proceed Checkout</a>
+                    <div class="col-lg-12">
+                        <nav>
+                            <div class="nav nav-tabs mb-3">
+                                <button class="nav-link active border-white border-bottom-0" type="button" role="tab"
+                                        id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
+                                        aria-controls="nav-about" aria-selected="true">Mô tả sản phẩm</button>
+                            </div>
+                        </nav>
+                        <div class="tab-content mb-5">
+                            <div class="tab-pane active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                                <h5>Cách bảo quản:</h5>
+                                <p>✔️ Bảo quản trong môi trường khô ráo và thoáng mát: Tránh để gấu bông len ở nơi ẩm ướt hoặc gần nguồn nước, vì điều này có thể làm cho len mốc và làm hỏng sản phẩm. Tránh tiếp xúc với bụi bẩn và bề mặt bẩn.</p>
+                                <p>❌ Tránh giặt máy: Thú bông bằng len thường không thích hợp để giặt máy vì có thể làm hỏng cấu trúc và hình dáng của chúng. Thay vào đó, bạn nên giặt thủ công bằng nước lạnh hoặc nước ấm với một ít xà phòng nhẹ. Sau đó, hãy lau khô bằng cách vắt nhẹ hoặc để tự nhiên khô.</p>
+                                <p>❌ Tránh sử dụng hóa chất mạnh: Hãy tránh sử dụng chất tẩy rửa mạnh hoặc chất tẩy uế cho thú bông bằng len vì chúng có thể làm hỏng len và làm mất màu sản phẩm.</p>
+                                <h5>Shop cam kết:</h5>
+                                <p>
+                                <p>✔️ Chất liệu phụ kiện tốt, đảm bảo an toàn, thân thiện với môi trường.</p>
+                                <p>✔️ Sản phẩm giống với mô tả, màu sắc có thể chênh lệch 3-5% do ánh sáng, điều kiện chụp.</p>
+                                <p>✔️ Sản phẩm được kiểm tra kỹ, đóng gói cẩn thận, tránh trường hợp giao sai, giao thiếu phụ kiện.</p>
+                                <p>✔️ Thời gian giao hàng nhanh. Miễn phí vận chuyển cho đơn hàng trên 200k.</p>
+                                <div class="px-2">
+                                    <div class="row g-4">
+                                        <div class="col-6">
+                                            <div class="row bg-light align-items-center text-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Kích cỡ</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">${product.size}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row text-center align-items-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Chất lượng</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">${product.quality}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row bg-light text-center align-items-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Chất liệu</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">${product.material}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row text-center align-items-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Màu sắc</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">${product.color}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-xl-3">
+                <div class="row g-4 fruite">
+                    <div class="col-lg-12">
+                        <div class="position-relative">
+                            <img src="<c:url value='/template/user/img/tushen.jpeg' />" class="img-fluid w-100 rounded" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Cart Page End -->
-
-<script>
-    function updateQuantity(productId, delta) {
-        const input = document.querySelector(`input[name='quantities[${productId}]']`);
-        const currentValue = parseInt(input.value) || 0;
-        input.value = currentValue + delta;
-    }
-</script>
-
-
-
+</div>
+<!-- Single Product End -->
 
 
 <!-- Footer Start -->

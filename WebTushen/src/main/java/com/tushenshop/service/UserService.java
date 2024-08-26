@@ -13,6 +13,16 @@ import java.util.Optional;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
+
+
+    public User login(String username, String password) {
+        User user = userRepository.findByUsernameAndPassword(username, password);
+        if (user != null && user.getPassword().equals(password)) {
+            return user;
+        }
+        return null;
+    }
+
     public List<User> listAll()
     {
         return (List<User>) userRepository.findAll();
@@ -30,9 +40,17 @@ public class UserService {
         } else {
             throw new UserException("Could not find User with id " + user.getUserId());
         }
+
     }
 
-
+    public User getUserByUsername(String username) throws UserException {
+        Optional<User> user = Optional.ofNullable(userRepository.findByUsername(username));
+        if (user.isPresent()) {
+            return user.get();
+        } else {
+            throw new UserException("Could not find User with username " + username);
+        }
+    }
 
     public User get(int id) throws UserException
     {

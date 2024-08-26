@@ -25,6 +25,21 @@ public class ProductService {
         productRepository.save(product);
     }
 
+    // Tìm sản phẩm theo thể loại
+    public List<Product> findByCategoryId(Integer categoryId) {
+        return productRepository.findByCategoryId(categoryId);
+    }
+
+    // Tìm kiếm sản phẩm theo tên
+    public List<Product> searchProducts(String search, Integer categoryId, String sort) {
+        return productRepository.searchProducts(search, categoryId, sort);
+    }
+
+    // Lọc sản phẩm theo thể loại và sắp xếp
+    public List<Product> findByCategoryIdAndSort(Integer categoryId, String sort) {
+        return productRepository.findByCategoryIdAndSort(categoryId, sort);
+    }
+
     // Cập nhật sản phẩm
     public Product updateProduct(Product product) throws ProductException {
         Optional<Product> existingProduct = productRepository.findById(product.getProductId());

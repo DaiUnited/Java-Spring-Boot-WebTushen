@@ -32,7 +32,7 @@ public class Category {
 
     // Getters and Setters
 
-    public long getCategoryId() {
+    public Integer getCategoryId() {
         return id;
     }
 

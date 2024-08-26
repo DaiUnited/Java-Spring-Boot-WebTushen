@@ -46,9 +46,11 @@
         <div class="navbar-buttons navbar-header pull-right" role="navigation">
             <ul class="nav ace-nav">
                 <li class="light-blue dropdown-modal">
-                    <a href="#" class="dropdown-toggle">
-                        Xin chào, [fullName]
-                    </a>
+                    <c:if test="${not empty sessionScope.loggedInUser}">
+                    <h1>Chào mừng admin, ${sessionScope.loggedInUser.fullName}</h1>
+                    <a href="<c:url value='/logout' />" class="btn btn-outline-secondary">Đăng xuất</a>
+                    </c:if>
+
                 <li class="light-blue dropdown-modal">
                     <a href="#">
                         <i class="ace-icon fa fa-power-off"></i>
@@ -107,15 +109,15 @@
         </div>
         <ul class="nav nav-list">
             <li>
-                <a href="<c:url value='/admin/accounts'/>">
+                <a href="<c:url value='/admin/user/show'/>">
                     <i class="menu-icon fa fa-user"></i>
-                    <span class="menu-text"> Accounts </span>
+                    <span class="menu-text"> Users </span>
                 </a>
                 <b class="arrow"></b>
             </li>
 
             <li>
-                <a href="<c:url value='/admin/products'/>">
+                <a href="<c:url value='/admin/product/show'/>">
                     <i class="menu-icon fa fa-shopping-cart"></i>
                     <span class="menu-text"> Products </span>
                 </a>
@@ -123,7 +125,7 @@
             </li>
 
             <li>
-                <a href="<c:url value='/admin/categories'/>">
+                <a href="<c:url value='/admin/category/show'/>">
                     <i class="menu-icon fa fa-list"></i>
                     <span class="menu-text"> Categories </span>
                 </a>
@@ -131,7 +133,7 @@
             </li>
 
             <li>
-                <a href="<c:url value='/admin/orders'/>">
+                <a href="<c:url value='/admin/orders/show'/>">
                     <i class="menu-icon fa fa-file-text"></i>
                     <span class="menu-text"> Orders </span>
                 </a>
@@ -139,7 +141,7 @@
             </li>
 
             <li>
-                <a href="<c:url value='/admin/order-details'/>">
+                <a href="<c:url value='/admin/order-details/show'/>">
                     <i class="menu-icon fa fa-info-circle"></i>
                     <span class="menu-text"> Order Details </span>
                 </a>

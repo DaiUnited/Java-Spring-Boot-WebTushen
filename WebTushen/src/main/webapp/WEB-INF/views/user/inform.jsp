@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Fruitables - Vegetable Website Template</title>
+    <title>Tushen Crochet Shop</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -56,35 +56,31 @@
     </div>
     <div class="container px-0">
         <nav class="navbar navbar-light bg-white navbar-expand-xl">
-            <a href="index.html" class="navbar-brand"><h1 class="text-primary display-6">Fruitables</h1></a>
+            <a href="index.html" class="navbar-brand"><h1 class="text-primary display-6">Tushen Craft</h1></a>
             <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars text-primary"></span>
             </button>
             <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
-                    <a href="index.html" class="nav-item nav-link">Home</a>
-                    <a href="shop.html" class="nav-item nav-link">Shop</a>
-                    <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                            <a href="cart.html" class="dropdown-item">Cart</a>
-                            <a href="chackout.html" class="dropdown-item">Chackout</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            <a href="404.html" class="dropdown-item">404 Page</a>
-                        </div>
-                    </div>
-                    <a href="contact.html" class="nav-item nav-link active">Contact</a>
+                    <a href="<c:url value="/home"/>" class="nav-item nav-link active">Home</a>
+                    <a href="<c:url value="/shop"/>" class="nav-item nav-link">Shop</a>
+                    <a href="<c:url value="/about"/>" class="nav-item nav-link">About Us</a>
                 </div>
                 <div class="d-flex m-3 me-0">
                     <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
-                    <a href="#" class="position-relative me-4 my-auto">
+                    <a href="<c:url value='/user/cart' />" class="position-relative me-4 my-auto">
                         <i class="fa fa-shopping-bag fa-2x"></i>
                         <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
                     </a>
-                    <a href="#" class="my-auto">
-                        <i class="fas fa-user fa-2x"></i>
-                    </a>
+                    <c:if test="${not empty sessionScope.loggedInUser}">
+                        <div class="d-flex">
+                            <a href="<c:url value='/user/inform' />" class="btn btn-outline-primary">Xin chào, ${sessionScope.loggedInUser.fullName}</a>
+                            <a href="<c:url value='/logout' />" class="btn btn-outline-secondary ms-3">Đăng xuất</a>
+                        </div>
+                    </c:if>
+                    <c:if test="${empty sessionScope.loggedInUser}">
+                        <a href="<c:url value='/login' />" class="btn btn-outline-primary"><i class="fas fa-user fa-2x"></i>ㅤĐăng nhập</a>
+                    </c:if>
                 </div>
             </div>
         </nav>
@@ -113,73 +109,81 @@
 <!-- Modal Search End -->
 
 
+
 <!-- Single Page Header start -->
-<div class="container-fluid page-header py-5">
-    <h1 class="text-center text-white display-6">Contact</h1>
+<div class="container-fluid page-header py-5" style="background-image: url(/template/user/img/banner.jpg)">
+    <h1 class="text-center text-white display-6" style="color: deeppink">Tushen Crochet Shop</h1>
     <ol class="breadcrumb justify-content-center mb-0">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item"><a href="#">Pages</a></li>
-        <li class="breadcrumb-item active text-white">Contact</li>
+        <li class="breadcrumb-item"><a href="<c:url value="/home"/>">Home</a></li>
+        <li class="breadcrumb-item active text-white">User Information</li>
+        <li class="breadcrumb-item"><a href="<c:url value="/about"/>">About</a></li>
     </ol>
 </div>
 <!-- Single Page Header End -->
 
+<!-- Information Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5 text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <i class="bi bi-exclamation-triangle display-1 text-secondary"></i>
+                <h1 class="display-1">Thông tin tài khoản</h1>
+                <div class="mb-4">
+                    <c:if test="${not empty message}">
+                        <div class="alert alert-success">${message}</div>
+                    </c:if>
+                    <c:if test="${not empty error}">
+                        <div class="alert alert-danger">${error}</div>
+                    </c:if>
 
-<!-- Contact Start -->
-<div class="container-fluid contact py-5">
-    <div class="container py-5">
-        <div class="p-5 bg-light rounded">
-            <div class="row g-4">
-                <div class="col-12">
-                    <div class="text-center mx-auto" style="max-width: 700px;">
-                        <h1 class="text-primary">Get in touch</h1>
-                        <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="h-100 rounded">
-                        <iframe class="rounded w-100"
-                                style="height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd"
-                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <form action="" class="">
-                        <input type="text" class="w-100 form-control border-0 py-3 mb-4" placeholder="Your Name">
-                        <input type="email" class="w-100 form-control border-0 py-3 mb-4" placeholder="Enter Your Email">
-                        <textarea class="w-100 form-control border-0 mb-4" rows="5" cols="10" placeholder="Your Message"></textarea>
-                        <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary " type="submit">Submit</button>
+                    <form action="<c:url value='/user/update' />" method="post">
+                        <input type="hidden" name="userId" value="${user.userId}"/>
+                        <input type="hidden" name="username" value="${user.username}"/>
+                        <input type="hidden" name="password" value="${user.password}"/>
+                        <div>
+                            <label>Email:</label>
+                            <input type="text" name="email" value="${user.email}" required />
+                        </div>
+                        <div>
+                            <label>Họ tên:</label>
+                            <input type="text" name="fullName" value="${user.fullName}" required />
+                        </div>
+                        <div>
+                            <label>Điện thoại:</label>
+                            <input type="text" name="phoneNumber" value="${user.phoneNumber}" required />
+                        </div>
+                        <div>
+                            <label>Địa chỉ:</label>
+                            <input type="text" name="address" value="${user.address}" required />
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">Cập nhật thông tin</button>
+                        </div>
+                    </form>
+
+                    <hr>
+
+                    <h2>Thay đổi mật khẩu</h2>
+                    <form action="<c:url value='/user/change-password' />" method="post">
+                        <div>
+                            <label>Mật khẩu hiện tại:</label>
+                            <input type="password" name="currentPassword" required />
+                        </div>
+                        <div>
+                            <label>Mật khẩu mới:</label>
+                            <input type="password" name="newPassword" required />
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">Đổi mật khẩu</button>
+                        </div>
                     </form>
                 </div>
-                <div class="col-lg-5">
-                    <div class="d-flex p-4 rounded mb-4 bg-white">
-                        <i class="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
-                        <div>
-                            <h4>Address</h4>
-                            <p class="mb-2">123 Street New York.USA</p>
-                        </div>
-                    </div>
-                    <div class="d-flex p-4 rounded mb-4 bg-white">
-                        <i class="fas fa-envelope fa-2x text-primary me-4"></i>
-                        <div>
-                            <h4>Mail Us</h4>
-                            <p class="mb-2">info@example.com</p>
-                        </div>
-                    </div>
-                    <div class="d-flex p-4 rounded bg-white">
-                        <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
-                        <div>
-                            <h4>Telephone</h4>
-                            <p class="mb-2">(+012) 3456 7890</p>
-                        </div>
-                    </div>
-                </div>
+                <a class="btn border-secondary rounded-pill py-3 px-5" href="<c:url value="/home"/>">Go Back To Home</a>
             </div>
         </div>
     </div>
 </div>
-<!-- Contact End -->
-
+<!-- Information End -->
 
 <!-- Footer Start -->
 <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
@@ -188,8 +192,8 @@
             <div class="row g-4">
                 <div class="col-lg-3">
                     <a href="#">
-                        <h1 class="text-primary mb-0">Fruitables</h1>
-                        <p class="text-secondary mb-0">Fresh products</p>
+                        <h1 class="text-primary mb-0">Tushen</h1>
+                        <p class="text-secondary mb-0">Crochet Shop</p>
                     </a>
                 </div>
                 <div class="col-lg-6">
@@ -246,7 +250,7 @@
                     <p>Email: Example@gmail.com</p>
                     <p>Phone: +0123 4567 8910</p>
                     <p>Payment Accepted</p>
-                    <img src="img/payment.png" class="img-fluid" alt="">
+                    <img src="<c:url value='/template/user/img/payment.png' />" class="img-fluid" alt="">
                 </div>
             </div>
         </div>

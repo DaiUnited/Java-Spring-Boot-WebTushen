@@ -163,7 +163,7 @@
                                                 <i class="fa fa-minus"></i>
                                             </button>
                                         </div>
-                                        <input type="number" class="form-control form-control-sm text-center border-0" name="quantities[${item.product.productId}]" value="${item.quantity}">
+                                        <input type="number" class="form-control form-control-sm text-center border-0" name="quantity[${item.product.productId}]" value="${item.quantity}">
                                         <div class="input-group-btn">
                                             <button type="button" class="btn btn-sm btn-plus rounded-circle bg-light border" onclick="updateQuantity(${item.product.productId}, 1)">
                                                 <i class="fa fa-plus"></i>
@@ -206,7 +206,7 @@
                         </div>
                         <div class="d-flex justify-content-between">
                             <h5 class="mb-0 me-4">Tiền ship:</h5>
-                            <p class="mb-0">Phí ship: 15000 VNĐ</p>
+                            <p class="mb-0">15000 VNĐ</p>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h5 class="mb-0 me-4">Địa chỉ giao hàng:</h5>

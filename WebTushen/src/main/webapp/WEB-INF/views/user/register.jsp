@@ -109,158 +109,70 @@
 <!-- Modal Search End -->
 
 
+
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5" style="background-image: url(/template/user/img/banner.jpg)">
     <h1 class="text-center text-white display-6" style="color: deeppink">Tushen Crochet Shop</h1>
     <ol class="breadcrumb justify-content-center mb-0">
         <li class="breadcrumb-item"><a href="<c:url value="/home"/>">Home</a></li>
-        <li class="breadcrumb-item active text-white">Shop</li>
+        <li class="breadcrumb-item active text-white">Login</li>
         <li class="breadcrumb-item"><a href="<c:url value="/about"/>">About</a></li>
     </ol>
 </div>
 <!-- Single Page Header End -->
 
+<!-- Login Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5 text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <i class="bi bi-exclamation-triangle display-1 text-secondary"></i>
+                <h1 class="display-1">Login</h1>
+                <div class="mb-4">
+                    <c:if test="${not empty error}">
+                        <div style="color: red;">${error}</div>
+                    </c:if>
 
-<!-- Fruits Shop Start-->
-<div class="container-fluid fruite py-5">
-    <div class="container py-5">
-        <h1 class="mb-4">Tất cả sản phẩm</h1>
-        <div class="row g-4">
-            <div class="col-lg-12">
-                <form action="${pageContext.request.contextPath}/shop" method="get">
-                    <div class="row g-4">
-                        <div class="col-xl-3">
-                            <div class="input-group w-100 mx-auto d-flex">
-                                <input type="search" name="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                                <span id="search-icon-10" class="input-group-text p-3"><i class="fa fa-search"></i></span>
-                                <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-                            </div>
+                    <form action="<c:url value='/user/save'/>" method="post">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" class="form-control" required>
                         </div>
-                        <div class="col-6"></div>
-                        <div class="col-xl-3">
-                            <div class="bg-light ps-3 py-3 rounded d-flex justify-content-between mb-4">
-                                <label for="sort">Default Sorting:</label>
-                                <select id="sort" name="sort" class="border-0 form-select-sm bg-light me-3">
-                                    <option value="PriceAsc">Giá thấp đến cao</option>
-                                    <option value="PriceDesc">Giá cao đến thấp</option>
-                                </select>
-                                <button type="submit" class="btn btn-primary">Lọc</button>
-                            </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" class="form-control" required>
                         </div>
-                    </div>
-                    <!-- Thêm một nút tìm kiếm nếu muốn -->
-                </form>
-                <div class="row g-4">
-                    <div class="col-lg-3">
-                        <div class="row g-4">
-                            <div class="col-lg-12">
-                                <div class="mb-3">
-                                    <h4>Loại sản phẩm</h4>
-                                    <c:forEach var="category" items="${categoryList}">
-                                        <ul class="list-unstyled fruite-categorie">
-                                            <li>
-                                                <div class="d-flex justify-content-between fruite-name">
-                                                    <a href="?category=${category.categoryId}">
-                                                        <i class="fas fa-apple-alt me-2"></i>${category.categoryName}
-                                                    </a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </c:forEach>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="mb-3">
-                                    <h4 class="mb-2">Price</h4>
-                                    <input type="range" class="form-range w-100" id="rangeInput" name="rangeInput" min="10000" max="500000" value="0" oninput="amount.value=rangeInput.value">
-                                    <output id="amount" name="amount" min-velue="10000" max-value="500000" for="rangeInput">0</output>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="mb-3">
-                                    <h4>Kích cỡ</h4>
-                                    <div class="mb-2">
-                                        <input type="radio" class="me-2" id="Categories-1" name="Categories-1" value="Beverages">
-                                        <label for="Categories-1"> Nhỏ</label>
-                                    </div>
-                                    <div class="mb-2">
-                                        <input type="radio" class="me-2" id="Categories-2" name="Categories-1" value="Beverages">
-                                        <label for="Categories-2"> Vừa</label>
-                                    </div>
-                                    <div class="mb-2">
-                                        <input type="radio" class="me-2" id="Categories-3" name="Categories-1" value="Beverages">
-                                        <label for="Categories-3"> Lớn</label>
-                                    </div>
-                                    <h4>Chất lượng</h4>
-                                    <div class="mb-2">
-                                        <input type="radio" class="me-2" id="Categories-4" name="Categories-1" value="Beverages">
-                                        <label for="Categories-4"> Thường</label>
-                                    </div>
-                                    <div class="mb-2">
-                                        <input type="radio" class="me-2" id="Categories-5" name="Categories-1" value="Beverages">
-                                        <label for="Categories-5"> Tốt</label>
-                                    </div>
-                                    <h4>Chất liệu</h4>
-                                    <div class="mb-2">
-                                        <input type="radio" class="me-2" id="Categories-6" name="Categories-1" value="Beverages">
-                                        <label for="Categories-4"> Len mỏng</label>
-                                    </div>
-                                    <div class="mb-2">
-                                        <input type="radio" class="me-2" id="Categories-7" name="Categories-1" value="Beverages">
-                                        <label for="Categories-5"> Len sợi to</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="position-relative">
-                                    <img src="<c:url value='/template/user/img/pattern_img.jpg' />" class="img-fluid w-100 rounded" alt="">
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="row g-4 justify-content-center">
-                            <c:forEach var="product" items="${productList}">
-                            <div class="col-md-6 col-lg-6 col-xl-4">
-                                <div class="rounded position-relative fruite-item">
-                                    <div class="fruite-img">
-                                        <c:if test="${not empty product.image}">
-                                            <img src="<c:url value='/template/admin/product/image/${product.image}'/>" class="img-fluid w-100 rounded-top" alt="${product.image}" style="object-fit: cover; width: 150px; height: 300px;">
-                                        </c:if>
-                                    </div>
-                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">${product.category.categoryName}</div>
-                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                        <h4>${product.productName}</h4>
-                                        <p>${product.description}</p>
-                                        <div class="d-flex justify-content-between flex-lg-wrap">
-                                            <p class="text-dark fs-5 fw-bold mb-0">${product.price} VND</p>
-                                            <a href="<c:url value='/detail?id=${product.productId}'/>" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Xem chi tiết</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </c:forEach>
-                            <div class="col-12">
-                                <div class="pagination d-flex justify-content-center mt-5">
-                                    <a href="#" class="rounded">&laquo;</a>
-                                    <a href="#" class="active rounded">1</a>
-                                    <a href="#" class="rounded">2</a>
-                                    <a href="#" class="rounded">3</a>
-                                    <a href="#" class="rounded">4</a>
-                                    <a href="#" class="rounded">5</a>
-                                    <a href="#" class="rounded">6</a>
-                                    <a href="#" class="rounded">&raquo;</a>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" class="form-control">
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="text" id="phoneNumber" name="phoneNumber" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea id="address" name="address" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="role"></label>
+                            <input type="hidden" id="role" name="role" value="User" class="form-control">
+                        </div>
+                        <div class="form-group mt-3">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <a href="<c:url value='/login'/>" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Fruits Shop End-->
-
+<!-- Login End -->
 
 <!-- Footer Start -->
 <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
@@ -372,4 +284,5 @@
 <script src="<c:url value='/template/user/js/main.js' />"></script>
 </body>
 
+</html>
 </html>

@@ -150,22 +150,22 @@
                         <p class="mb-4">- Gối ôm: Gấu bông Len có thể được sử dụng như một chiếc gối ôm để giúp bạn thư giãn và giảm căng thẳng sau một ngày làm việc căng thẳng.</p>
                         <p class="mb-4">- Trang trí nội thất: Những chiếc thú bông có thiết kế độc đáo và dễ thương có thể được sử dụng làm đồ trang trí cho phòng khách, phòng ngủ hoặc một góc ở nơi làm việc - học tập của bạn.</p>
                         <p class="mb-4">- Quà tặng: Thú bông bằng len là một món quà ý nghĩa và độc đáo cho bạn bè, người thân trong các dịp đặc biệt như sinh nhật, kỷ niệm hay ngày lễ.</p>
-                        <div class="input-group quantity mb-5" style="width: 100px;">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-minus rounded-circle bg-light border" >
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                            <input type="number" name="quantity" class="form-control form-control-sm text-center border-0" value="1" min="1">
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm btn-plus rounded-circle bg-light border">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
                         <c:choose>
                             <c:when test="${not empty sessionScope.loggedInUser}">
                                 <form action="<c:url value='/user/add-to-cart' />" method="post">
+                                    <div class="input-group quantity mb-5" style="width: 100px;">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-sm btn-minus rounded-circle bg-light border" >
+                                                <i class="fa fa-minus"></i>
+                                            </button>
+                                        </div>
+                                        <input type="number" name="quantity" class="form-control form-control-sm text-center border-0" value="1" min="1">
+                                        <div class="input-group-btn">
+                                            <button type="button" class="btn btn-sm btn-plus rounded-circle bg-light border">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
                                     <input type="hidden" name="productId" value="${product.productId}" />
                                     <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
                                 </form>

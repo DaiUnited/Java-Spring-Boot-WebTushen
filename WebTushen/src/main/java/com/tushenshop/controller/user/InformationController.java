@@ -31,6 +31,19 @@ public class InformationController {
 
     }
 
+    @GetMapping("/register")
+    public ModelAndView createUser(Model model) {
+        model.addAttribute("user", new User());
+        return new ModelAndView("user/register");
+    }
+
+    // Xử lý việc lưu người dùng mới
+    @PostMapping("/save")
+    public ModelAndView saveUser(@ModelAttribute("user") User user) {
+        userService.save(user);
+        return new ModelAndView("redirect:/login");
+    }
+
     @PostMapping("/update")
     public ModelAndView updateUserInformation(@ModelAttribute("user") User updatedUser, HttpSession session, RedirectAttributes redirectAttributes) throws UserException {
         User loggedInUser = (User) session.getAttribute("loggedInUser");

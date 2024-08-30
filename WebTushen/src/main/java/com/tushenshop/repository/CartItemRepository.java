@@ -17,4 +17,6 @@ public interface CartItemRepository extends CrudRepository<CartItem, Integer> {
 
     // Tìm một mục trong giỏ hàng theo Cart và Product ID
     CartItem findByCartAndProductId(Cart cart, Integer productId);
+
+
 }

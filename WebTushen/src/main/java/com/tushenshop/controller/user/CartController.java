@@ -31,7 +31,7 @@ public class CartController {
     private ProductService productService;
 
     @PostMapping("/add-to-cart")
-    public String addToCart(@RequestParam("productId") Integer productId, HttpSession session, RedirectAttributes redirectAttributes) {
+    public String addToCart(@RequestParam("productId") Integer productId, @RequestParam("quantity") Integer quantity, HttpSession session, RedirectAttributes redirectAttributes) {
         User loggedInUser = (User) session.getAttribute("loggedInUser");
 
         if (loggedInUser == null) {
@@ -40,7 +40,7 @@ public class CartController {
 
         try {
             Product product = productService.get(productId);
-            cartService.addProductToCart(loggedInUser, product, 1); // Default quantity is 1
+            cartService.addProductToCart(loggedInUser, product, quantity); // Default quantity is 1
             redirectAttributes.addFlashAttribute("message", "Product added to cart successfully.");
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error", e.getMessage());

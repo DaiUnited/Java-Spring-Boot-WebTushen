@@ -251,7 +251,7 @@
                                         <div class="rounded position-relative product-item">
                                             <div class="product-img">
                                                 <c:if test="${not empty product.image}">
-                                                    <img src="<c:url value='/template/admin/product/image/${product.image}'/>" class="img-fluid w-100 rounded-top" alt="${product.image}" style="object-fit: cover;">
+                                                    <img src="<c:url value='/template/admin/product/image/${product.image}'/>" class="img-fluid w-100 rounded-top" alt="${product.image}" style="object-fit: cover; width: 150px; height: 300px;">
                                                 </c:if>
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">

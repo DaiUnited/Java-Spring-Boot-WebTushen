@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "CartItems")
+@Table(name = "Cart_Items")
 public class CartItem {
 
     @Id

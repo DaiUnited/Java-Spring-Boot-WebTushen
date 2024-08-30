@@ -145,7 +145,8 @@
                         <button class="btn btn-primary" type="submit">Login</button>
                     </form>
                 </div>
-                <a class="btn border-secondary rounded-pill py-3 px-5" href="<c:url value="/home"/>">Go Back To Home</a>
+                <a class="btn border-secondary rounded-pill py-3 px-5" href="<c:url value="/home"/>">Trở về trang chủ</a>
+                <a class="btn border-secondary rounded-pill py-3 px-5" href="<c:url value="/user/register"/>">Chưa có tài khoản? Đăng ký</a>
             </div>
         </div>
     </div>

@@ -12,10 +12,7 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -75,18 +72,15 @@ public class CartController {
     }
 
     @PostMapping("/update-quantity")
-    public String updateCartItem(@RequestParam("productId") Integer productId,
-                                 @RequestParam("quantity") Integer quantity,
-                                 HttpSession session, RedirectAttributes redirectAttributes) {
+    public String updateCartItem(@RequestParam("productId") Integer productId, HttpSession session, RedirectAttributes redirectAttributes) {
         User loggedInUser = (User) session.getAttribute("loggedInUser");
 
         if (loggedInUser == null) {
             return "redirect:/login";
         }
-
+        CartItem item = new CartItem();
         Cart cart = cartService.getCartForUser(loggedInUser);
-        cartService.updateCartItemQuantity(cart, productId, quantity);
-
+        cartService.updateCartItemQuantity(cart, productId, item.getQuantity());
         return "redirect:/user/cart";
     }
 

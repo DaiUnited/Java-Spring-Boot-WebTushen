@@ -122,35 +122,47 @@
 <!-- Single Page Header End -->
 
 <!-- Login Start -->
-<div class="container-fluid py-5">
-    <div class="container py-5 text-center">
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <i class="bi bi-exclamation-triangle display-1 text-secondary"></i>
-                <h1 class="display-1">Login</h1>
-                <div class="mb-4">
-                    <c:if test="${not empty error}">
-                        <div style="color: red;">${error}</div>
-                    </c:if>
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="mb-md-5 mt-md-4 pb-5">
+                            <h2 class="fw-bold mb-2 text-uppercase" style="color: deepskyblue">Login</h2>
+                            <p class="text-white-50 mb-5">Please enter your login and password!</p>
+                            <form action="<c:url value='/login'/>" method="post">
+                                <div data-mdb-input-init class="form-outline form-white mb-4">
+                                    <input type="text" id="username" name="username" required class="form-control form-control-lg" />
+                                    <label class="form-label" for="username">Email</label>
+                                </div>
 
-                    <form action="<c:url value='/login'/>" method="post">
-                        <div>
-                            <label for="username">Username:</label>
-                            <input type="text" id="username" name="username" required>
+                                <div data-mdb-input-init class="form-outline form-white mb-4">
+                                    <input type="password" id="password" name="password" class="form-control form-control-lg" />
+                                    <label class="form-label" for="password">Password</label>
+                                </div>
+
+                                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="<c:url value="/user/register"/>">Forgot password?</a></p>
+
+                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                            </form>
+                            <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                                <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                                <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                                <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                            </div>
+
                         </div>
+
                         <div>
-                            <label for="password">Password:</label>
-                            <input type="password" id="password" name="password" required>
+                            <p class="mb-0">Don't have an account? <a href="<c:url value="/user/register"/>" class="text-white-50 fw-bold">Sign Up</a>
+                            </p>
                         </div>
-                        <button class="btn btn-primary" type="submit">Login</button>
-                    </form>
+                        <a class="btn border-secondary rounded-pill py-3 px-5" href="<c:url value="/home"/>">Trở về trang chủ</a>
+                    </div>
                 </div>
-                <a class="btn border-secondary rounded-pill py-3 px-5" href="<c:url value="/home"/>">Trở về trang chủ</a>
-                <a class="btn border-secondary rounded-pill py-3 px-5" href="<c:url value="/user/register"/>">Chưa có tài khoản? Đăng ký</a>
             </div>
         </div>
     </div>
-</div>
 <!-- Login End -->
 
 <!-- Footer Start -->

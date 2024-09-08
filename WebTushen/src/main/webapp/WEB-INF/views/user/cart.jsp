@@ -65,6 +65,7 @@
                     <a href="<c:url value="/home"/>" class="nav-item nav-link active">Home</a>
                     <a href="<c:url value="/shop"/>" class="nav-item nav-link">Shop</a>
                     <a href="<c:url value="/about"/>" class="nav-item nav-link">About Us</a>
+
                 </div>
                 <div class="d-flex m-3 me-0">
                     <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
@@ -163,7 +164,7 @@
                                                 <i class="fa fa-minus"></i>
                                             </button>
                                         </div>
-                                        <input type="number" class="form-control form-control-sm text-center border-0" name="quantity[${item.product.productId}]" value="${item.quantity}">
+                                        <input type="number" class="form-control form-control-sm text-center border-0" value="${item.quantity}">
                                         <div class="input-group-btn">
                                             <button type="button" class="btn btn-sm btn-plus rounded-circle bg-light border" onclick="updateQuantity(${item.product.productId}, 1)">
                                                 <i class="fa fa-plus"></i>

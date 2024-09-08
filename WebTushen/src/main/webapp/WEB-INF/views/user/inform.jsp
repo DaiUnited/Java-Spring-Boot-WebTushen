@@ -122,67 +122,61 @@
 <!-- Single Page Header End -->
 
 <!-- Information Start -->
-<div class="container-fluid py-5">
-    <div class="container py-5 text-center">
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <i class="bi bi-exclamation-triangle display-1 text-secondary"></i>
-                <h1 class="display-1">Thông tin tài khoản</h1>
-                <div class="mb-4">
-                    <c:if test="${not empty message}">
-                        <div class="alert alert-success">${message}</div>
-                    </c:if>
-                    <c:if test="${not empty error}">
-                        <div class="alert alert-danger">${error}</div>
-                    </c:if>
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="mb-md-5 mt-md-4 pb-5">
+                            <h2 class="fw-bold mb-2 text-uppercase" style="color: rgba(255, 181, 36, 0.7)">Thông tin tài khoản</h2>
+                            <form action="<c:url value='/user/update' />" method="post">
+                                <input type="hidden" name="userId" value="${user.userId}"/>
+                                <input type="hidden" name="username" value="${user.username}"/>
+                                <input type="hidden" name="password" value="${user.password}"/>
+                                <div data-mdb-input-init class="form-outline form-white mb-4">
+                                    <input type="text" id="email" name="email" value="${user.email}" required class="form-control form-control-lg" />
+                                    <label class="form-label" for="email">Email</label>
+                                </div>
 
-                    <form action="<c:url value='/user/update' />" method="post">
-                        <input type="hidden" name="userId" value="${user.userId}"/>
-                        <input type="hidden" name="username" value="${user.username}"/>
-                        <input type="hidden" name="password" value="${user.password}"/>
-                        <div>
-                            <label>Email:</label>
-                            <input type="text" name="email" value="${user.email}" required />
-                        </div>
-                        <div>
-                            <label>Họ tên:</label>
-                            <input type="text" name="fullName" value="${user.fullName}" required />
-                        </div>
-                        <div>
-                            <label>Điện thoại:</label>
-                            <input type="text" name="phoneNumber" value="${user.phoneNumber}" required />
-                        </div>
-                        <div>
-                            <label>Địa chỉ:</label>
-                            <input type="text" name="address" value="${user.address}" required />
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-primary">Cập nhật thông tin</button>
-                        </div>
-                    </form>
+                                <div data-mdb-input-init class="form-outline form-white mb-4">
+                                    <input type="text" id="fullName" name="fullName" value="${user.fullName}" required class="form-control form-control-lg" />
+                                    <label class="form-label" for="fullName">Full Name</label>
+                                </div>
 
-                    <hr>
+                                <div data-mdb-input-init class="form-outline form-white mb-4">
+                                    <input type="text" id="phoneNumber" name="phoneNumber" value="${user.phoneNumber}" required class="form-control form-control-lg" />
+                                    <label class="form-label" for="phoneNumber">Phone Number</label>
+                                </div>
 
-                    <h2>Thay đổi mật khẩu</h2>
-                    <form action="<c:url value='/user/change-password' />" method="post">
-                        <div>
-                            <label>Mật khẩu hiện tại:</label>
-                            <input type="password" name="currentPassword" required />
+                                <div data-mdb-input-init class="form-outline form-white mb-4">
+                                    <input type="text" id="address" name="address" value="${user.address}" required class="form-control form-control-lg" />
+                                    <label class="form-label" for="address">Address</label>
+                                </div>
+
+
+                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Cập nhật</button>
+                            </form>
+                            <h2 class="fw-bold mb-2 text-uppercase" style="color: deepskyblue">Đổi mật khẩu</h2>
+                            <form action="<c:url value='/user/change-password' />" method="post">
+                                <div data-mdb-input-init class="form-outline form-white mb-4">
+                                    <input type="password" name="currentPassword" required class="form-control form-control-lg" />
+                                    <label class="form-label">Mật khẩu hiện tại:</label>
+                                </div>
+                                <div data-mdb-input-init class="form-outline form-white mb-4">
+                                    <input type="password" name="newPassword" required class="form-control form-control-lg" />
+                                    <label class="form-label">Mật khẩu mới:</label>
+                                </div>
+                                <div data-mdb-input-init class="form-outline form-white mb-4">
+                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Đổi mật khẩu</button>
+                                </div>
+                            </form>
                         </div>
-                        <div>
-                            <label>Mật khẩu mới:</label>
-                            <input type="password" name="newPassword" required />
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-primary">Đổi mật khẩu</button>
-                        </div>
-                    </form>
+                        <a class="btn border-secondary rounded-pill py-3 px-5" href="<c:url value="/home"/>">Trở về trang chủ</a>
+                    </div>
                 </div>
-                <a class="btn border-secondary rounded-pill py-3 px-5" href="<c:url value="/home"/>">Go Back To Home</a>
             </div>
         </div>
     </div>
-</div>
 <!-- Information End -->
 
 <!-- Footer Start -->

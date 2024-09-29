@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20240707</FitNesseVersion>
+  <rootPath>SpringBootTest</rootPath>
+  <result>
+    <counts>
+      <right>0</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>1</exceptions>
+    </counts>
+    <date>2024-09-23T19:09:45+07:00</date>
+    <runTimeInMillis>3</runTimeInMillis>
+    <content>&lt;br/&gt;&lt;div class="contents"&gt;
+	&lt;b&gt;Contents:&lt;/b&gt;
+	&lt;ul class="toc1"/&gt;
+&lt;/div&gt;
+&lt;br/&gt;&lt;span class="meta"&gt;classpath: target/classes&lt;/span&gt;&lt;br/&gt;&lt;span class="meta"&gt;classpath: target/test-classes&lt;/span&gt;&lt;br/&gt;&lt;span class="meta"&gt;classpath: target/dependency/*.jar&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="3" class="error"&gt;com.tushenshop.fitnesse.LoginFixture&lt;hr&gt;&lt;pre&gt;&lt;div class="fit_stacktrace"&gt;java.lang.ExceptionInInitializerError
+	at com.tushenshop.fitnesse.LoginFixture.&lt;init&gt;(LoginFixture.java:16)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.ReflectAccess.newInstance(ReflectAccess.java:132)
+	at java.base/jdk.internal.reflect.ReflectionFactory.newInstance(ReflectionFactory.java:259)
+	at java.base/java.lang.Class.newInstance(Class.java:755)
+	at fit.FixtureClass.newInstance(FixtureClass.java:24)
+	at fit.FixtureLoader.instantiateFixture(FixtureLoader.java:61)
+	at fit.FixtureLoader.instantiateFirstValidFixtureClass(FixtureLoader.java:82)
+	at fit.FixtureLoader.disgraceThenLoad(FixtureLoader.java:43)
+	at fit.Fixture.loadFixture(Fixture.java:142)
+	at fit.Fixture.getLinkedFixtureWithArgs(Fixture.java:134)
+	at fit.Fixture.doTables(Fixture.java:79)
+	at fit.FitServer.process(FitServer.java:81)
+	at fit.FitServer.run(FitServer.java:56)
+	at fit.FitServer.main(FitServer.java:41)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'dataSourceScriptDatabaseInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.context.annotation.AnnotationConfigApplicationContext.&lt;init&gt;(AnnotationConfigApplicationContext.java:93)
+	at com.tushenshop.fitnesse.SpringContext.&lt;clinit&gt;(SpringContext.java:14)
+	... 16 more
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	... 21 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 31 more
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:178)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
+	... 45 more
+Caused by: org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.determineDriverClassName(DataSourceProperties.java:186)
+	at org.springframework.boot.autoconfigure.jdbc.PropertiesJdbcConnectionDetails.getDriverClassName(PropertiesJdbcConnectionDetails.java:49)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.createDataSource(DataSourceConfiguration.java:55)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari.dataSource(DataSourceConfiguration.java:117)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:146)
+	... 46 more
+&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;username&lt;/td&gt;
+		&lt;td&gt;password&lt;/td&gt;
+		&lt;td&gt;login?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;admin&lt;/td&gt;
+		&lt;td&gt;admin123&lt;/td&gt;
+		&lt;td&gt;true&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;user1&lt;/td&gt;
+		&lt;td&gt;wrongpass&lt;/td&gt;
+		&lt;td&gt;false&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;user2&lt;/td&gt;
+		&lt;td&gt;password&lt;/td&gt;
+		&lt;td&gt;true&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;userX&lt;/td&gt;
+		&lt;td&gt;wrongpass&lt;/td&gt;
+		&lt;td&gt;false&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>SpringBootTest</relativePageName>
+  </result>
+  <executionLog>
+    <testSystem>fit:fit.FitServer</testSystem>
+    <command>"C:\Program Files\Java\jdk-22\bin\java" -cp target/classes;target/test-classes;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\accessors-smart-2.5.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\android-json-0.0.20131108.vaadin1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\angus-activation-2.0.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\antlr4-runtime-4.13.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\apiguardian-api-1.1.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\asm-7.3.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\asm-analysis-7.3.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\asm-commons-7.3.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\asm-tree-7.3.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\asm-util-7.3.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\aspectjweaver-1.9.22.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\assertj-core-3.25.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\awaitility-4.2.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\byte-buddy-1.14.18.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\byte-buddy-agent-1.14.18.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\classmate-1.7.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\commons-lang3-3.14.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\commons-text-1.11.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\diffutils-1.3.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\ecj-3.33.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\fitnesse-20240707.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\hamcrest-2.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\hamcrest-core-2.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\hibernate-core-6.5.2.Final.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\hibernate-validator-8.0.1.Final.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\HikariCP-5.1.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\htmllexer-2.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\htmlparser-2.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\istack-commons-runtime-4.1.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jackson-annotations-2.17.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jackson-core-2.17.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jackson-databind-2.17.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jackson-datatype-jdk8-2.17.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jackson-datatype-jsr310-2.17.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jackson-module-parameter-names-2.17.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.activation-api-2.1.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.annotation-api-2.1.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.el-api-5.0.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.inject-api-2.0.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.persistence-api-3.1.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.servlet-api-6.0.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.servlet.jsp.jstl-3.0.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.servlet.jsp.jstl-api-3.0.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.transaction-api-2.0.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.validation-api-3.0.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.xml.bind-api-4.0.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jandex-3.1.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jaxb-core-4.0.5.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jaxb-runtime-4.0.5.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jboss-logging-3.5.3.Final.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\json-20240205.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\json-path-2.9.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\json-smart-2.5.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jsonassert-1.5.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jul-to-slf4j-2.0.13.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\junit-4.13.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\junit-jupiter-5.10.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\junit-jupiter-api-5.10.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\junit-jupiter-engine-5.10.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\junit-jupiter-params-5.10.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\junit-platform-commons-1.10.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\junit-platform-engine-1.10.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\log4j-api-2.23.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\log4j-to-slf4j-2.23.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\logback-classic-1.5.6.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\logback-core-1.5.6.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\micrometer-commons-1.13.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\micrometer-observation-1.13.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\mockito-core-5.11.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\mockito-junit-jupiter-5.11.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\mysql-connector-j-8.3.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\nashorn-core-15.4.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\objenesis-3.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\opentest4j-1.3.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\slf4j-api-2.0.13.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\slf4j-jdk14-2.0.13.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\snakeyaml-2.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-aop-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-aspects-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-beans-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-autoconfigure-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-aop-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-data-jpa-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-jdbc-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-json-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-logging-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-test-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-tomcat-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-validation-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-web-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-test-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-test-autoconfigure-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-context-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-core-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-data-commons-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-data-jpa-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-expression-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-jcl-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-jdbc-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-orm-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-test-5.3.20.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-tx-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-web-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-webmvc-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\tomcat-embed-core-10.1.26.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\tomcat-embed-el-10.1.26.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\tomcat-embed-jasper-10.1.26.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\tomcat-embed-websocket-10.1.26.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\txw2-4.0.5.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\velocity-engine-core-2.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\xmlunit-core-2.9.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\fitnesse-standalone.jar fit.FitServer DESKTOP-LRUS0HH 59364 3863</command>
+    <exitCode>1</exitCode>
+    <stdOut>19:09:44.566 [main] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate -- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+19:09:44.640 [main] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate -- Finished Spring Data repository scanning in 64 ms. Found 5 JPA repository interfaces.
+19:09:45.003 [main] WARN org.springframework.context.annotation.AnnotationConfigApplicationContext -- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'dataSourceScriptDatabaseInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
+</stdOut>
+    <stdErr>SLF4J(W): Class path contains multiple SLF4J providers.
+SLF4J(W): Found provider [ch.qos.logback.classic.spi.LogbackServiceProvider@54a097cc]
+SLF4J(W): Found provider [org.slf4j.jul.JULServiceProvider@36f6e879]
+SLF4J(W): See https://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J(I): Actual provider is of type [ch.qos.logback.classic.spi.LogbackServiceProvider@54a097cc]
+</stdErr>
+  </executionLog>
+  <finalCounts>
+    <right>0</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>1</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>1781</totalRunTimeInMillis>
+</testResults>
+

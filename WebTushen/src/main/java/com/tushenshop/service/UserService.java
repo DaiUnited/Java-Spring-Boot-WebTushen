@@ -4,6 +4,7 @@ import com.tushenshop.exception.UserException;
 import com.tushenshop.model.User;
 import com.tushenshop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

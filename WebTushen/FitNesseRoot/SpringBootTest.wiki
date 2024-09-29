@@ -1,0 +1,10 @@
+!contents -R2 -g -p -f -h
+!path target/classes
+!path target/test-classes
+!path target/dependency/*.jar
+
+!|com.tushenshop.fitnesse.LoginFixture|
+|username  |password  |login?|
+|admin     |admin123  |true |
+|dai     |dai155 |true|
+|dai     |dai123 |false|

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20240707</FitNesseVersion>
+  <rootPath>SpringBootTest</rootPath>
+  <result>
+    <counts>
+      <right>3</right>
+      <wrong>0</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+    <date>2024-09-25T05:13:27+07:00</date>
+    <runTimeInMillis>3</runTimeInMillis>
+    <content>&lt;br/&gt;&lt;div class="contents"&gt;
+	&lt;b&gt;Contents:&lt;/b&gt;
+	&lt;ul class="toc1"/&gt;
+&lt;/div&gt;
+&lt;br/&gt;&lt;span class="meta"&gt;classpath: target/classes&lt;/span&gt;&lt;br/&gt;&lt;span class="meta"&gt;classpath: target/test-classes&lt;/span&gt;&lt;br/&gt;&lt;span class="meta"&gt;classpath: target/dependency/*.jar&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td colspan="3"&gt;com.tushenshop.fitnesse.LoginFixture&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;username&lt;/td&gt;
+		&lt;td&gt;password&lt;/td&gt;
+		&lt;td&gt;login?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;admin&lt;/td&gt;
+		&lt;td&gt;admin123&lt;/td&gt;
+		&lt;td class="pass"&gt;true&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;dai&lt;/td&gt;
+		&lt;td&gt;dai155&lt;/td&gt;
+		&lt;td class="pass"&gt;true&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;dai&lt;/td&gt;
+		&lt;td&gt;dai123&lt;/td&gt;
+		&lt;td class="pass"&gt;false&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>SpringBootTest</relativePageName>
+  </result>
+  <executionLog>
+    <testSystem>fit:fit.FitServer</testSystem>
+    <command>"C:\Program Files\Java\jdk-22\bin\java" -cp target/classes;target/test-classes;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\accessors-smart-2.5.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\android-json-0.0.20131108.vaadin1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\angus-activation-2.0.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\antlr4-runtime-4.13.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\apiguardian-api-1.1.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\asm-7.3.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\asm-analysis-7.3.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\asm-commons-7.3.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\asm-tree-7.3.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\asm-util-7.3.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\aspectjweaver-1.9.22.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\assertj-core-3.25.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\awaitility-4.2.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\byte-buddy-1.14.18.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\byte-buddy-agent-1.14.18.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\classmate-1.7.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\commons-lang3-3.14.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\commons-text-1.11.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\diffutils-1.3.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\ecj-3.33.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\fitnesse-20240707.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\hamcrest-2.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\hamcrest-core-2.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\hibernate-core-6.5.2.Final.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\hibernate-validator-8.0.1.Final.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\HikariCP-5.1.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\htmllexer-2.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\htmlparser-2.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\istack-commons-runtime-4.1.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jackson-annotations-2.17.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jackson-core-2.17.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jackson-databind-2.17.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jackson-datatype-jdk8-2.17.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jackson-datatype-jsr310-2.17.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jackson-module-parameter-names-2.17.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.activation-api-2.1.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.annotation-api-2.1.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.el-api-5.0.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.inject-api-2.0.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.persistence-api-3.1.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.servlet-api-6.0.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.servlet.jsp.jstl-3.0.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.servlet.jsp.jstl-api-3.0.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.transaction-api-2.0.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.validation-api-3.0.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jakarta.xml.bind-api-4.0.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jandex-3.1.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jaxb-core-4.0.5.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jaxb-runtime-4.0.5.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jboss-logging-3.5.3.Final.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\json-20240205.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\json-path-2.9.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\json-smart-2.5.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jsonassert-1.5.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\jul-to-slf4j-2.0.13.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\junit-4.13.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\junit-jupiter-5.10.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\junit-jupiter-api-5.10.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\junit-jupiter-engine-5.10.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\junit-jupiter-params-5.10.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\junit-platform-commons-1.10.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\junit-platform-engine-1.10.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\log4j-api-2.23.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\log4j-to-slf4j-2.23.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\logback-classic-1.5.6.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\logback-core-1.5.6.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\micrometer-commons-1.13.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\micrometer-observation-1.13.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\mockito-core-4.0.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\mockito-junit-jupiter-5.11.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\mysql-connector-j-8.3.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\nashorn-core-15.4.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\objenesis-3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\opentest4j-1.3.0.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\slf4j-api-2.0.13.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\slf4j-jdk14-2.0.13.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\snakeyaml-2.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-aop-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-aspects-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-beans-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-autoconfigure-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-aop-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-data-jpa-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-jdbc-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-json-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-logging-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-test-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-tomcat-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-validation-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-starter-web-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-test-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-boot-test-autoconfigure-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-context-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-core-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-data-commons-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-data-jpa-3.3.2.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-expression-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-jcl-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-jdbc-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-orm-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-test-5.3.20.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-tx-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-web-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\spring-webmvc-6.1.11.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\tomcat-embed-core-10.1.26.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\tomcat-embed-el-10.1.26.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\tomcat-embed-jasper-10.1.26.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\tomcat-embed-websocket-10.1.26.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\txw2-4.0.5.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\velocity-engine-core-2.3.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\target\dependency\xmlunit-core-2.9.1.jar;C:\Users\daiun\Documents\WebTushen\WebTushen\fitnesse-standalone.jar fit.FitServer DESKTOP-LRUS0HH 50510 3863</command>
+    <exitCode>0</exitCode>
+    <stdOut></stdOut>
+    <stdErr></stdErr>
+  </executionLog>
+  <finalCounts>
+    <right>1</right>
+    <wrong>0</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>1252</totalRunTimeInMillis>
+</testResults>
+
